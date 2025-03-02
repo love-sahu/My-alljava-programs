@@ -1,0 +1,10 @@
+import java.itil.Scanner;
+class primeOrNot
+{
+public static void main(string[] args){
+
+int num=new Scanner(System.in).nextint();
+
+Systm.out.print((num/2=1)?("prime number"):("not prime number"));
+}
+}
