@@ -1,10 +1,9 @@
 public class RangeOfAmstrongNumber {
   public static void main(String[] args) {
-    // count
-    // 124==1*3+2*3+4*3
-    // System.out.println(isamstrong(153));
-
-    for (int i = 1; i <= 500; i++) {
+    // 145
+    // length=3
+    // 1*1*1+4*4*4+5*5*5 == original number hance it is amstrong number
+    for (int i = 1; i <= 1000; i++) {
       if (isamstrong(i)) {
         System.out.println(i);
       }
@@ -15,16 +14,13 @@ public class RangeOfAmstrongNumber {
     int ct = count(num);
     int sum = 0;
     for (int i = num; i > 0; i /= 10) {
-      int rem = i % 10;
-
-      sum = sum + power(rem, ct);
-
+      int last = i % 10;
+      sum += power(last, ct);
     }
-    // System.out.println(sum);
     return num == sum;
   }
 
-  public static int count(int num) {
+  public static int count(int num) { // 153
     int ct = 0;
     while (num != 0) {
       num /= 10;

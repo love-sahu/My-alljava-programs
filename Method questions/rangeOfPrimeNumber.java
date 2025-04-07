@@ -1,6 +1,6 @@
 public class rangeOfPrimeNumber {
   public static void main(String[] args) {
-    for (int start = 1; start <= 10; start++) {
+    for (int start = 1; start <= 100; start++) {
       boolean prime = isprime(start);
 
       if (prime) {
