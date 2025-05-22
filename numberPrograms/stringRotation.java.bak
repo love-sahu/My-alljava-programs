@@ -1,0 +1,24 @@
+import java.util.Scanner;
+class stringRotation{
+public static void main(String[]args){
+System.out.print("ABCDEFG");
+String st="ABCDEFG"; //rotate=2 ==>CDEFGAB
+       char arr[]=st.toCharArray();
+      Scanner sc=new Scanner(System.in);
+      System.out.print("enter number of rotation: ");
+      int n=sc.nextInt();
+	  System.out.print(rightrotate(arr));
+}
+	  public static void rightrotate(String arr){
+		for(int i=0;i<n;i++){//2
+			char first=arr[0];
+			for(int j=0;j<arr.length;j++){
+				arr[j]=arr[j+1];
+			}
+			arr[arr.length-1]=first;
+		}
+         return arr[i];
+	  }
+	  
+	
+}
