@@ -1,0 +1,21 @@
+class ThrowsException{
+   public static void main(String[]args){
+	
+	System.out.println("exicution Start");
+	try{
+		m1(10,0);
+	}
+	catch(ArithmeticException ae){
+		System.out.println("ArithmeticException handled");
+	}
+   }
+   public static void m1(int num1,int num2)throws ArithmeticException{
+	System.out.println("Exception handling start");
+	div( num1, num2);
+   }
+   public static void div(int n1,int n2)throws ArithmeticException{
+	System.out.println("div()");
+	throw new ArithmeticException("explisit exception");
+	System.out.println(n1/n2);
+   }
+ }

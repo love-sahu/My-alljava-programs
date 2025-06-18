@@ -1,0 +1,19 @@
+class finalizeMthodEx{
+  
+     @SuppressWarnings("removal")
+     @Override
+		 public void finalize() throws Throwable {
+			System.out.println("finalise start");
+			System.out.println("object got distroyed");
+			System.out.println(10/0);
+			super.finalize();
+			System.out.println("finalise ends");
+		    
+		 }
+		 public static void main(String []args){
+			 finalizeMthodEx obj=new finalizeMthodEx();
+			 obj=null;
+			 System.garbageCollector();
+			 System.out.println("main end");
+		 }
+    }

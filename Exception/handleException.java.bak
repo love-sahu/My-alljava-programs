@@ -1,0 +1,11 @@
+class handleException{
+public static void main(String[]args){
+	try{
+		System.out.print(10/0);
+	}
+	catch(Exception e){
+		System.out.println("ExceptionHandled");
+	}
+	System.out.print("exception"+10/0);
+}
+}
