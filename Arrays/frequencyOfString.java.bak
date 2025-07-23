@@ -1,0 +1,103 @@
+import java.util.*;
+class  frequencyOfString
+{
+	public static void main(String[] args) 
+	{
+	
+		String str="lovesahulove";
+		char []arr=new char[str.length()];
+		for(int i=0;i<arr.length;i++){
+			arr[i]=str.charAt(i);
+		}
+		System.out.print(Arrays.toString(arr));
+		//frequency(arr);
+		System.out.println();
+		//firstnonrepeating(arr);
+		//highestRepeatingChar(arr);
+		System.out.println();
+		System.out.println(removeDupCharacter(arr));
+	}
+	public static void frequency(char []arr){
+		boolean arr2[]=new boolean[arr.length];
+		for(int i=0;i<arr.length;i++){
+			int cnt=0;
+		if(arr2[i])continue;
+			for(int j=0;j<arr.length;j++){
+				if((arr[i]==arr[j])){
+					cnt++;
+					arr2[j]=true;
+				}
+			}
+			
+			System.out.println();
+			System.out.print(arr[i]+":"+cnt);
+			
+		}
+	} 
+		public static void firstnonrepeating(char []arr){
+		boolean arr2[]=new boolean[arr.length];
+		boolean flag=false;
+		for(int i=0;i<arr.length;i++){
+			int cnt=0;
+		if(arr2[i])continue;
+			for(int j=0;j<arr.length;j++){
+				if((arr[i]==arr[j])){
+					cnt++;
+					arr2[j]=true;
+				}
+			}
+			
+			
+			if(cnt==1){
+				System.out.println();
+				System.out.print(arr[i]+" first non repeating");
+				flag=true;
+				break;
+			}
+		}
+		if(!flag){
+			System.out.println();
+			System.out.print("first non-repeating not found");
+		}
+	}
+	
+	public static void highestRepeatingChar(char arr[]){
+		boolean arr2[]=new boolean[arr.length];
+		int index=0;
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i<arr.length;i++){
+			int cnt=0;
+			if(arr2[i])continue;
+			for(int j=0;j<arr.length;j++){
+				if(arr[i]==arr[j]){
+					cnt++;
+					arr2[j]=true;
+				}
+			}
+			if(max <cnt){
+				max=cnt;
+				index=i;
+			}
+		}
+		System.out.print(arr[index]+" highestfrequency character");
+	}
+	
+	public static String removeDupCharacter(char arr[]){ //lovesahulove
+	boolean arr2[]=new boolean[arr.length];
+	String str="";
+		for(int i=0;i<arr.length;i++){
+			int cnt=0;
+			if(arr2[i])continue;
+			
+			for(int j=0;j<arr.length;j++){
+				if(arr[i]==arr[j]){
+					cnt++;
+					arr2[j]=true;
+				}
+			
+			}
+				System.out.println(arr[i]+""+cnt);
+		}
+		return str;
+	}
+}

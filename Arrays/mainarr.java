@@ -1,0 +1,20 @@
+import java.util.*;
+class  mainarr
+{
+	public static void main(String[] args) 
+	{
+		int arr[]={2,0,1,0,4,3};
+		for(int i=0,j=arr.length-1;i<arr.length;j>=0;i++;j--){
+			
+
+			if(arr[i]=0) {
+				int temp=arr[i];
+				arr[i]=arr[j];
+				arr[j]=temp;
+			}
+		}
+			
+			
+			System.out.print(Arrays.toString(arr));
+	}
+}

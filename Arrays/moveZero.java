@@ -1,0 +1,21 @@
+import java.util.*;
+class  moveZero
+{
+	public static void main(String[] args) 
+	{
+		int nums[]={0,1,2,0,3,0,4,5,2};
+		   for(int i=0;i<nums.length;i++){
+            if(nums[i]==0){
+                for(int j=i+1;j<nums.length;j++){
+                    if(nums[j]!=0) {
+                    int temp=nums[i];
+                    nums[i]=nums[j];
+                    nums[j]=temp;
+                    break;
+                }
+                }
+            }
+        }
+		System.out.println(Arrays.toString(nums));
+	}
+}

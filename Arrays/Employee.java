@@ -1,0 +1,99 @@
+class Employee {
+    static int id = 12453;
+    String empid;
+    String ename;
+    String department;
+    double salary;
+    String job;
+
+    {
+        this.empid = "EMP" + id++;
+    }
+
+    public Employee(String ename, String department, String job, double salary) {
+        this.ename = ename;
+        this.department = department;
+        this.salary = salary;
+        this.job = job;
+    }
+
+    @Override
+    public String toString() {
+        return empid + " : " + ename + ", designation: "+empid +" id"+ job + ", Department: " + department + ", salary: " + salary;
+    }
+}
+
+class employeeDriver {
+    public static void main(String[] args) {
+        Employee[] employeeList = new Employee[5];
+        employeeList[0] = new Employee("love", "DEVELOPMENT", "developer", 50000);
+        employeeList[1] = new Employee("ruju", "SUPPORT", "developer", 80000);
+        employeeList[2] = new Employee("manish", "SALES", "FULLTIME", 900000);
+        employeeList[3] = new Employee("satish", "TESTER", "AUTOMATION", 120000);
+        employeeList[4] = new Employee("karan", "HR", "intern", 150000);
+        Display(employeeList);
+		
+		SortinAssendingOrderBySalary(employeeList);
+		  Display(employeeList);
+		  
+		  SortindesendingOrderBySalary(employeeList);
+		  Display(employeeList);
+		  
+		  SortinassendingOrderByempid(employeeList);
+		   Display(employeeList);
+		   
+		     SortinassendingOrderename(employeeList);
+		   Display(employeeList);
+    }
+	public static void SortinAssendingOrderBySalary(Employee[] arr){
+		for(int i=0;i<arr.length;i++){
+			for(int j=i+1;j<arr.length;j++){
+				if(arr[i].salary>arr[j].salary){
+					Employee temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+	}
+	
+	public static void SortindesendingOrderBySalary(Employee[] arr){
+		for(int i=0;i<arr.length;i++){
+			for(int j=i+1;j<arr.length;j++){
+				if(arr[i].salary<arr[j].salary){
+					Employee temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+	}
+	public static void SortinassendingOrderByempid(Employee[] arr){
+		for(int i=0;i<arr.length;i++){
+			for(int j=i+1;j<arr.length;j++){
+				if(arr[i].empid.compareTo(arr[j].empid)>0){
+					Employee temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+	}
+	
+		 public static void  SortinassendingOrderename(Employee[] arr){
+		for(int i=0;i<arr.length;i++){
+			for(int j=i+1;j<arr.length;j++){
+				if(arr[i].ename.compareTo(arr[j].ename)>0){
+					Employee temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+	}
+    public static void Display(Employee[] arr) {
+        for (Employee ele : arr) {
+            System.out.println(ele);
+        }
+    }
+}

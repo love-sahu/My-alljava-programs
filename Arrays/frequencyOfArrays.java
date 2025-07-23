@@ -1,0 +1,28 @@
+class frequencyOfArrays
+{
+	public static void main(String[] args) 
+	{
+		int []arr={1,2,5,1,2,5,1,9,6,52,6,9,5,6,65,95,5,95,5};
+		int n=arr.length;
+
+	    int maxcount=Integer.MIN_VALUE;
+		int min=Integer.MAX_VALUE;
+		boolean b[]=new boolean [arr.length];
+		for(int i=0;i<n;i++){
+			int count=0;
+			for(int j=0;j<n;j++){
+				if(arr[i]==arr[j] && b[j]==false){
+					b[j]=true;
+					count++;
+				}
+			}	
+			System.out.println(arr[i]+" number repeating "+count+ " times");
+		} 
+		
+		//System.out.println(arr[i]+" number repeating "+count+ " times"); ///all for frequency
+		//	if(count>1)System.out.println(arr[i]+" number repeating "+count+ " times");//for repeating numbers (distinct elements)(duplicate)
+		//  if(count==1)System.out.print(arr[i]+" ");//for non repeating numbers only //unique elements
+		//System.out.println("highest frequency  for max repeating number "+maxcount);
+		//System.out.println("lowest frequency  for min repeating number"+min);
+	}
+}
