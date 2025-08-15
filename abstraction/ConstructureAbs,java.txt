@@ -1,0 +1,5 @@
+abstract class ConstructureAbs{
+public static void main(String[] args){
+
+}
+}
