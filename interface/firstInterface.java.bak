@@ -1,0 +1,36 @@
+interface A
+{  
+	public static final int =10;
+	void M1();
+	void M2();
+	default void m3(){
+		System.out.println("from super non static method");
+	}
+	 static private void(){
+			System.out.println("from super non static method");
+	}
+}
+
+class B implements A
+{
+	@Override
+		public void M1(){
+	     System.out.println("from M1()");
+	}
+	
+	@Override
+		public void M2(){
+			System.out.println("from M2()");
+		}
+}
+
+class  firstInterface
+{
+	public static void main(String[] args) 
+	{
+		B obj=new B();
+		obj.m3();
+		obj.M1();
+		obj.M2();
+	}
+}
