@@ -1,0 +1,53 @@
+class product{
+	String pid="FLIPKART123";
+	String pname;
+	double price;
+	
+product(String pname,double price){
+	super();
+	this.pname=pname;
+	this.price=price;
+}
+public void Display(){
+	System.out.println(pname);
+	System.out.println(price);
+}
+}
+
+class user
+{
+	String name="love sahu"
+	String email="lovevsahu@gmail.com"
+	long contact=1452154872l;
+	
+	public void DisplayuserInfo(){
+		System.out.println("name :"+name+ "email :"+email+" contact :"+contact);
+}
+}
+class payment extends user
+{
+	public void cheakPaymentoption(payment payment){
+		if(payment instanceof phonepay){
+		System.out.println("redirect to phone pay");
+		phonepay obj=(phonepay)payment;
+		obj.paymentoption();
+		}
+		else if(payment instanceof Googlepay){
+			System.out.println("redirect to Googlepay");
+			googlepay obj=(goglepay)payment;
+			obj.paymentoption();
+		}
+		
+	}
+}
+
+
+
+
+class TypeCastingDriver
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Hello World!");
+	}
+}
