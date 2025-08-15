@@ -1,0 +1,29 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class wrapper_memory {
+    public static void main(String[] args) {
+       Integer obj1=1000;
+        Integer obj2=1100;
+        System.out.println(obj1==obj2);
+        
+        Integer obj3=1000;
+        System.out.println(obj1==obj2);
+        System.out.println(obj1.equals(obj3));
+        
+        Float obj4=(float)12;
+        Float obj5=(float)12;
+        System.out.println(obj4);
+        
+        System.out.println(obj5);
+        
+        System.out.println(obj4==obj5);
+        System.out.println(obj4.equals(obj5));
+        
+        Long obj6=123l;
+        Long obj7=123l;
+        
+        System.out.println(obj6==obj7);
+             System.out.println(obj6.equals(obj7)); 
+    }
+}
