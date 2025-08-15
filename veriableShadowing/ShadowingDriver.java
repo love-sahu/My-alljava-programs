@@ -1,0 +1,20 @@
+class demo {
+    String a = "outer Scope"; 
+
+    public static void m1() {
+        String a = "inner Scope";   
+        System.out.println(a);      
+        System.out.println(this.a); 
+		System.out.println(demo.a); //CTE
+		
+    }
+}
+
+class ShadowingDriver {
+    public static void main(String args[]) {
+        demo obj = new demo();
+        System.out.println("obj call");
+        obj.m1();
+		System.out.print(obj.a);
+    }
+}
