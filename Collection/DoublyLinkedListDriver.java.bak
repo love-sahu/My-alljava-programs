@@ -1,0 +1,169 @@
+class NoSuchElementFountException extends RuntimeException
+{
+	 NoSuchElementFountException(String desc){
+		super(desc);
+	}
+}
+class  DoublyLinkedList<E>
+{
+	Node<E> head;
+	Node<E> tail;
+	int index;
+	private class Node<E>
+	{
+		E ele;
+		Node<E> prev;
+		Node<E> next;
+		
+	    public Node(Node<E> prev,E ele) {
+			this.prev=prev;
+			this.ele=ele;
+			
+		}
+	}
+	@Override
+	public String toString(){
+		String data="[";
+		Node<E>currNode=head;
+		if(index==0){
+		return "[]";
+		}
+	
+		else{
+			while(currNode.next!=null){
+				data+=currNode.ele+" ,";
+				currNode=currNode.next;
+			}
+			data+=currNode.ele+"]";
+		}
+		return data;
+	}
+	public void add(E ele){
+		Node<E> newNode=new Node(tail,ele);
+		if(index==0){
+			head=newNode;
+			tail=newNode;
+		}
+		else{
+			tail.next=newNode;
+			newNode.prev=tail;
+			tail=newNode;
+		}
+		index++;
+	}
+	public int size(){
+		return index;
+	}
+	public void clear(){
+		head=null;
+		tail=null;
+		index=0;
+	}
+	public boolean isEmpty(){
+	return index==0;
+	}
+	public void addFirst(E ele){
+		
+		if(index==0){
+		 add(ele);
+		}
+		else{
+		Node<E> newNode=new Node(null,ele);
+		newNode.next=head;
+		head.prev=newNode;
+		head=newNode;
+		index++;
+		}
+	}
+	public E removeFirst(){
+		if(index==0){
+			throw new NoSuchElementFountException("");
+			}
+			if(index==1){
+				E temp=head.ele;
+				clear();
+				return temp;
+			}
+		else{
+			E temp=head.ele;
+			head=head.next;
+			head.prev=null;
+			index--;
+			return temp;
+		}
+	}
+	
+	public E removeLast(){
+		if(index==0){
+			throw new NoSuchElementFountException("");
+		}
+		if(index==1){
+			E temp=tail.ele;
+			clear();
+			return temp;
+		}
+		else{
+			E temp=tail.ele;
+			
+			tail=tail.prev;
+			tail.next=null;
+			return temp;
+		}
+		
+	}
+	public E remove(int index){ 
+		if(index <0 ||index >=size()){
+			throw new NoSuchElementFountException("Index : "+index+", size : " +size());
+		}
+	  if(index==0){
+		return removeFirst();
+	  }
+	  else if(index==size()-1){
+		return removeLast();
+	  }
+	  Node<E>currNode=head;
+	  Node<E>tempNode;
+	  
+	  for(int i=0;i<index-1;i++){
+		currNode=currNode.next;
+	  }
+	  tempNode=currNode.next;
+	  currNode.next=currNode.next.next;
+	  currNode.next.prev=currNode;
+	  tempNode.next=null;
+	  tempNode.prev=null;
+	  this.index--;
+	  	  return tempNode.ele;
+	}
+	public String reverseOrder(){
+		String data="[";
+		if(index==0){
+			return "[]";
+		}
+		else{
+			Node<E>currNode=tail;
+			while(currNode.prev!=null){
+				data+=currNode.ele+",";
+				currNode=currNode.prev;
+			}
+			data+=currNode.ele+"]";
+	}
+	return data;
+}
+
+}
+class DoublyLinkedListDriver
+{
+	public static void main(String args[]){
+		DoublyLinkedList<Integer> list=new DoublyLinkedList<>();
+	 list.add(100);
+	 list.add(200);
+	 list.add(300);
+	 list.add(400);
+	 list.add(500);
+	 list.add(600);
+	 System.out.println("___________________");
+	System.out.println(list);
+	System.out.println(list.reverseOrder());
+	}
+}
